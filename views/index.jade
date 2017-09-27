@@ -3,3 +3,23 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+
+  div(style="display: block")
+    -for(var i=0; i<users.length; i++)
+      div(style="display: block")
+        div(style="display: inline-block; width: 10em")= users[i]
+        -for(var j=0; j<problems[i].length; j++)
+          div(style="display: inline-block")= problems[i][j]
+
+  h2= name
+  div(style="display: block")
+    -for(var i=0; i<users.length; i++)
+      div(style="display: block")
+        div(style="display: inline-block; width: 10em")= users[i]
+        progress(value=sources[i][0] max=sources[i][1])
+
+  div
+    -for(var i=0; i<sets.length; i++)
+      p= sets[i].name
+      p= sets[i].users
+      p= sets[i].problems
